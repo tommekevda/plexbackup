@@ -1,1 +1,2 @@
-docker build https://github.com/tommekevda/plexbackup.git#main
+docker build -t tommekevda/plexbackup https://github.com/tommekevda/plexbackup.git#main
+docker push tommekevda/plexbackup
