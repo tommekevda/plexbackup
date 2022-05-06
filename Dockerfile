@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN apt update ; apt upgrade -y ; apt install rsync -y
+RUN apt update ; apt upgrade -y ; apt install rsync -y ; apt install crontab -y
 COPY rsynccron /etc/cron.d/rsynccron
 RUN chmod 0744 /etc/cron.d/rsynccron
 RUN crontab /etc/cron.d/rsynccron
