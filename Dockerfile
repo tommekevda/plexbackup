@@ -9,3 +9,5 @@ RUN chmod 0744 /etc/cron.d/rsynccron
 RUN crontab /etc/cron.d/rsynccron
 RUN mkdir /from ; mkdir /to
 VOLUME ["/from","/to"]
+
+CMD /bin/bash
