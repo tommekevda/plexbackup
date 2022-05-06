@@ -9,6 +9,7 @@ COPY rsynccron /etc/cron.d/rsynccron
 RUN chmod 0744 /etc/cron.d/rsynccron
 RUN crontab /etc/cron.d/rsynccron
 RUN mkdir /from ; mkdir /to
+RUN touch /var/log/cron.log
 VOLUME ["/from","/to"]
 
-CMD /bin/bash
+CMD tail -f /var/log/cron.log
