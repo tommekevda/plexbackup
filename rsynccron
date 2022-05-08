@@ -1,2 +1,1 @@
 30 10 * * * rsync -r -t /from/* /to >> /var/log/cron.log 2>&1
-0
