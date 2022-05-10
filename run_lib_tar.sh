@@ -1,2 +1,3 @@
 #!/bin/bash
-tar zcvf /from-lib/* /to/plexlib-${date +%Y-%m-%d}.tar.gz >> /var/log/cron.log 2>&1
+CURRENTDATE=`date +%Y-%m-%d`
+zip -0 -v -r /to/plexlib-${CURRENTDATE}.zip /from-lib

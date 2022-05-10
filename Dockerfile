@@ -5,6 +5,7 @@ RUN apt upgrade -y
 RUN apt install rsync -y
 RUN apt install cron -y
 RUN apt install nano -y
+RUN apt install zip -y
 # COPY rsynccron /etc/cron.d/rsynccron
 COPY run_rsync.sh /root/
 COPY run_lib_tar.sh /root/
