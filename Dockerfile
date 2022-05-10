@@ -10,8 +10,8 @@ RUN apt install zip -y
 COPY run_rsync.sh /root/
 COPY run_lib_tar.sh /root/
 # RUN chmod 0755 /etc/cron.d/rsynccron
-RUN chmod 0644 /root/run_rsync.sh
-RUN chmod 0644 /root/run_lib_tar.sh
+RUN chmod 0744 /root/run_rsync.sh
+RUN chmod 0744 /root/run_lib_tar.sh
 # RUN crontab /etc/cron.d/rsynccron
 RUN crontab -l | { cat; echo "30 10 * * * /root/run_rsync"; } | crontab -
 RUN crontab -l | { cat; echo "0 7 * * sun /root/run_lib_tar.sh"; } | crontab -
