@@ -14,8 +14,8 @@ RUN chmod 0644 /root/run_lib_tar.sh
 # RUN crontab /etc/cron.d/rsynccron
 RUN crontab -l | { cat; echo "30 10 * * * /root/run_rsync"; } | crontab -
 RUN crontab -l | { cat; echo "0 7 * * sun /root/run_lib_tar.sh"; } | crontab -
-RUN mkdir /from ; mkdir /to
+RUN mkdir /from-backup ; mkdir /from-lib ; mkdir /to
 RUN touch /var/log/cron.log
-VOLUME ["/from","/to"]
+VOLUME ["/from-lib", "/from-backup", "/to"]
 
 CMD cron ; tail -f /var/log/cron.log
