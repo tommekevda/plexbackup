@@ -7,10 +7,13 @@ RUN apt install cron -y
 RUN apt install nano -y
 # COPY rsynccron /etc/cron.d/rsynccron
 COPY run_rsync.sh /root/
+COPY run_lib_tar.sh /root/
 # RUN chmod 0755 /etc/cron.d/rsynccron
 RUN chmod 0644 /root/run_rsync.sh
+RUN chmod 0644 /root/run_lib_tar.sh
 # RUN crontab /etc/cron.d/rsynccron
-RUN crontab -l | { cat; echo "*/1 * * * * /root/run_rsync"; } | crontab -
+RUN crontab -l | { cat; echo "30 10 * * * /root/run_rsync"; } | crontab -
+RUN crontab -l | { cat; echo "0 7 * * sun /root/run_lib_tar.sh"; } | crontab -
 RUN mkdir /from ; mkdir /to
 RUN touch /var/log/cron.log
 VOLUME ["/from","/to"]

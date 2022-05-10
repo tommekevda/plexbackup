@@ -1,2 +1,2 @@
-#30 10 * * * /root/run_rsync
-*/1 * * * * /root/run_rsync
+30 10 * * * /root/run_rsync.sh
+0 7 * * sun /root/run_lib_tar.sh

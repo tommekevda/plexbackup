@@ -1,2 +1,2 @@
 #!/bin/bash
-rsync -r -t --verbose --human-readable /from/* /to >> /var/log/cron.log 2>&1
+rsync -r -t --verbose --human-readable /from-backup/* /to >> /var/log/cron.log 2>&1
